@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="eshop" match-name="cart"/>
+  <table-filter match-catalog="eshop" match-name="carthasproduct"/>
+  <table-filter match-catalog="eshop" match-name="chat"/>
+  <table-filter match-catalog="eshop" match-name="coin"/>
+  <table-filter match-catalog="eshop" match-name="image"/>
+  <table-filter match-catalog="eshop" match-name="maincat"/>
+  <table-filter match-catalog="eshop" match-name="page"/>
+  <table-filter match-catalog="eshop" match-name="price"/>
+  <table-filter match-catalog="eshop" match-name="product"/>
+  <table-filter match-catalog="eshop" match-name="rating"/>
+  <table-filter match-catalog="eshop" match-name="sale"/>
+  <table-filter match-catalog="eshop" match-name="shop"/>
+  <table-filter match-catalog="eshop" match-name="shop_has_user"/>
+  <table-filter match-catalog="eshop" match-name="shophasproduct"/>
+  <table-filter match-catalog="eshop" match-name="statusdata"/>
+  <table-filter match-catalog="eshop" match-name="subcat1"/>
+  <table-filter match-catalog="eshop" match-name="subcat2"/>
+  <table-filter match-catalog="eshop" match-name="ulavels"/>
+  <table-filter match-catalog="eshop" match-name="user"/>
+  <table-filter match-catalog="eshop" match-name="usertype"/>
+  <table-filter match-catalog="eshop" match-name="usertype_has_page"/>
+</hibernate-reverse-engineering>
