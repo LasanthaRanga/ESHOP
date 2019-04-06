@@ -38,6 +38,7 @@ public class User implements java.io.Serializable {
 	private String userDiscription;
 	private Double userCurrentCoin;
 	private Double userCurrentConinValue;
+	private String userPic;
 	private Set<ShopHasUser> shopHasUsers = new HashSet<ShopHasUser>(0);
 	private Set<Cart> carts = new HashSet<Cart>(0);
 	private Set<Product> products = new HashSet<Product>(0);
@@ -52,7 +53,7 @@ public class User implements java.io.Serializable {
 
 	public User(Usertype usertype, String userEmail, String userPassword, String userContact1, String userContact2,
 			String userAddress1, String userAddress2, String userAddress3, String userPostalCode, Integer userStatus,
-			String userName, String gender, String userNic, String userDiscription, Double userCurrentCoin,
+			String userName, String gender, String userNic, String userDiscription, Double userCurrentCoin,String userPic,
 			Double userCurrentConinValue, Set<ShopHasUser> shopHasUsers, Set<Cart> carts, Set<Product> products,
 			Set<Shop> shops) {
 		this.usertype = usertype;
@@ -71,6 +72,7 @@ public class User implements java.io.Serializable {
 		this.userDiscription = userDiscription;
 		this.userCurrentCoin = userCurrentCoin;
 		this.userCurrentConinValue = userCurrentConinValue;
+		this.userPic =userPic;
 		this.shopHasUsers = shopHasUsers;
 		this.carts = carts;
 		this.products = products;
@@ -234,6 +236,15 @@ public class User implements java.io.Serializable {
 		this.userCurrentConinValue = userCurrentConinValue;
 	}
 
+	@Column(name = "UserPic", length = 255)
+	public String getUserPic() {
+		return this.userPic;
+	}
+
+	public void setUserPic(String userPic) {
+		this.userPic = userPic;
+	}
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<ShopHasUser> getShopHasUsers() {
 		return this.shopHasUsers;
@@ -261,7 +272,7 @@ public class User implements java.io.Serializable {
 		this.products = products;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public Set<Shop> getShops() {
 		return this.shops;
 	}

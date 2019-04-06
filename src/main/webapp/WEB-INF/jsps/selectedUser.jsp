@@ -3,12 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page isELIgnored="false"%>
 
-<c:set var="page" value="selected" />
+<c:set var="page" value="allusers" />
 <c:set var="collaps" value="users" />
-
-
-
-<%@ include file="template/adminHead.jsp"%>
+<%@ include file="/WEB-INF/jsps/template/adminHead.jsp"%>
 
 
 <c:if test="${sessionScope.user==null}">
@@ -23,11 +20,11 @@
 	</div>
 
 <div class="card m-0 font-weight-bold text-primary">
-		<div class="card-header">Selected User ${user.fname}</div>
+		<div class="card-header">Selected User ${user.userName}</div>
 		<div class="card-body">
 
-			<h3>${user.fname}</h3>
-			<h3>${user.lname}</h3>
+			<h3>${user.userName}</h3>
+			<h3>${user.userNic}</h3>
 			<h3>${user.userEmail}</h3>
 			<h3>${user.getUsertype().getUserTypeName()}</h3>
 			<h3>${user.userEmail}</h3>
@@ -54,8 +51,5 @@
 </div>
 
 </section>
-<%@ include file="template/adminFoot.jsp"%>
-  
-
-
+<%@ include file="/WEB-INF/jsps/template/adminFoot.jsp"%>
 

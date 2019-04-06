@@ -1,7 +1,12 @@
 package com.eshop.controllers;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +15,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.eshop.entitiy.Image;
+import com.eshop.entitiy.Product;
 import com.eshop.entitiy.User;
 import com.eshop.service.UserServiceImpl;
 import com.eshop.util.EmailUtilImpl;
@@ -137,6 +146,41 @@ public class UserController {
 		User update = userServiceImpl.update(user);		
 		modelmap.addAttribute("user",update);
 		return"/admin/profile";
+	}
+	
+	@PostMapping("/uploadProPic") // //new annotation since 4.3
+	public String proPicUpload(@RequestParam("file") MultipartFile file, @RequestParam("uid") String uid,
+			HttpServletRequest request, ModelMap mm) {
+
+		String realPath = request.getServletContext().getRealPath("/");
+
+		if (file.isEmpty()) {
+			// redirectAttributes.addFlashAttribute("message", "Please select a file to
+			// upload");
+			return "/admin/profile";
+		} else {
+
+			System.out.println("---------------------------------------");
+			System.out.println(uid);
+			System.out.println("-========================================");
+			try {
+
+				// Get the file and save it somewhere
+				byte[] bytes = file.getBytes();
+				Path path = Paths.get(realPath + "../resources/static/uploads/propic/" + file.getOriginalFilename());
+				String dbp = "../uploads/propic/" + file.getOriginalFilename();
+				Image image = new Image();
+				User userbyid = userServiceImpl.getById(Integer.parseInt(uid));				
+				userbyid.setUserPic(dbp);
+				userServiceImpl.update(userbyid);
+
+				Files.write(path, bytes);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return "/admin/profile";
 	}
 	
 

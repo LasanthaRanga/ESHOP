@@ -45,7 +45,7 @@
 										<td>${User.userEmail}</td>
 										<td>${User.gender}</td>
 										<td>${User.getUsertype().getUserTypeName()}</td>
-										<td><a href="selectUser?uid=${User.idUser}">Find More</a></td>
+										<td><a href="selectUser/${User.idUser}">Find More</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

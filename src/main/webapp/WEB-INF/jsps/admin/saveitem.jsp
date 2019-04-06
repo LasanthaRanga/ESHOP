@@ -11,9 +11,9 @@
 <%@ include file="../template/adminHead.jsp"%>
 
 
-<c:if test="${sessionScope.user!=null}">
-	<c:redirect url = "/"/>
-</c:if>
+<%-- <c:if test="${sessionScope.user!=null}"> --%>
+<%-- 	<c:redirect url = "/"/> --%>
+<%-- </c:if> --%>
 
 
 

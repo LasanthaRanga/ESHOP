@@ -2,6 +2,9 @@ package com.eshop.service;
 
 import java.util.List;
 
+import com.eshop.entitiy.Shop;
+import com.eshop.entitiy.User;
+
 public interface Service<Entity> {
 
 	Entity save(Entity entity);
@@ -14,4 +17,5 @@ public interface Service<Entity> {
 
 	List<Entity> getAllByStatus(int i);
 
+	
 }

@@ -20,13 +20,9 @@
 <body id="page-top">
 
 
- <c:if test="${empty sessionScope.user}">
-	<c:redirect url = "/"/>
-</c:if>
+<c:if test="${empty sessionScope.user}"><c:redirect url = "/"/></c:if>
 
-<c:if test="${sessionScope.ut >2}">
-	<c:redirect url = "/"/>
-</c:if>"
+<c:if test="${sessionScope.ut >2}"><c:redirect url = "/"/></c:if>
 
 
 
