@@ -1,5 +1,5 @@
 package com.eshop.entitiy;
-// Generated Mar 18, 2019 10:10:47 PM by Hibernate Tools 4.3.5.Final
+// Generated Apr 10, 2019 12:46:25 AM by Hibernate Tools 4.3.5.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,6 +24,7 @@ public class Maincat implements java.io.Serializable {
 	private Integer idMaincat;
 	private String maincatName;
 	private Integer maincatStatus;
+	@JsonIgnore
 	private Set<Product> products = new HashSet<Product>(0);
 	@JsonIgnore
 	private Set<Subcat1> subcat1s = new HashSet<Subcat1>(0);

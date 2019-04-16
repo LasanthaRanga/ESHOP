@@ -1,5 +1,5 @@
 package com.eshop.entitiy;
-// Generated Mar 18, 2019 10:10:47 PM by Hibernate Tools 4.3.5.Final
+// Generated Apr 10, 2019 12:46:25 AM by Hibernate Tools 4.3.5.Final
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,22 +21,29 @@ public class Price implements java.io.Serializable {
 	private Integer idPrice;
 	private Product product;
 	private Double buying;
-	private Double minimum;
-	private Double maximum;
+	private Double profit;
+	private Double coinval;
+	private Double others;
+	private Double selling;
+	private Double discountRate;
+	private Double discountPrice;
+	private Double biforDiscount;
 	private Integer priceStatus;
 
 	public Price() {
 	}
 
-	public Price(Product product) {
-		this.product = product;
-	}
-
-	public Price(Product product, Double buying, Double minimum, Double maximum, Integer priceStatus) {
+	public Price(Product product, Double buying, Double profit, Double coinval, Double others, Double selling,
+			Double discountRate, Double discountPrice, Double biforDiscount, Integer priceStatus) {
 		this.product = product;
 		this.buying = buying;
-		this.minimum = minimum;
-		this.maximum = maximum;
+		this.profit = profit;
+		this.coinval = coinval;
+		this.others = others;
+		this.selling = selling;
+		this.discountRate = discountRate;
+		this.discountPrice = discountPrice;
+		this.biforDiscount = biforDiscount;
 		this.priceStatus = priceStatus;
 	}
 
@@ -53,7 +60,7 @@ public class Price implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Product_idProduct", nullable = false)
+	@JoinColumn(name = "Product_idProduct")
 	public Product getProduct() {
 		return this.product;
 	}
@@ -71,25 +78,70 @@ public class Price implements java.io.Serializable {
 		this.buying = buying;
 	}
 
-	@Column(name = "minimum", precision = 22, scale = 0)
-	public Double getMinimum() {
-		return this.minimum;
+	@Column(name = "profit", precision = 22, scale = 0)
+	public Double getProfit() {
+		return this.profit;
 	}
 
-	public void setMinimum(Double minimum) {
-		this.minimum = minimum;
+	public void setProfit(Double profit) {
+		this.profit = profit;
 	}
 
-	@Column(name = "maximum", precision = 22, scale = 0)
-	public Double getMaximum() {
-		return this.maximum;
+	@Column(name = "coinval", precision = 22, scale = 0)
+	public Double getCoinval() {
+		return this.coinval;
 	}
 
-	public void setMaximum(Double maximum) {
-		this.maximum = maximum;
+	public void setCoinval(Double coinval) {
+		this.coinval = coinval;
 	}
 
-	@Column(name = "Price_status")
+	@Column(name = "others", precision = 22, scale = 0)
+	public Double getOthers() {
+		return this.others;
+	}
+
+	public void setOthers(Double others) {
+		this.others = others;
+	}
+
+	@Column(name = "selling", precision = 22, scale = 0)
+	public Double getSelling() {
+		return this.selling;
+	}
+
+	public void setSelling(Double selling) {
+		this.selling = selling;
+	}
+
+	@Column(name = "discount_rate", precision = 22, scale = 0)
+	public Double getDiscountRate() {
+		return this.discountRate;
+	}
+
+	public void setDiscountRate(Double discountRate) {
+		this.discountRate = discountRate;
+	}
+
+	@Column(name = "discount_price", precision = 22, scale = 0)
+	public Double getDiscountPrice() {
+		return this.discountPrice;
+	}
+
+	public void setDiscountPrice(Double discountPrice) {
+		this.discountPrice = discountPrice;
+	}
+
+	@Column(name = "bifor_discount", precision = 22, scale = 0)
+	public Double getBiforDiscount() {
+		return this.biforDiscount;
+	}
+
+	public void setBiforDiscount(Double biforDiscount) {
+		this.biforDiscount = biforDiscount;
+	}
+
+	@Column(name = "price_status")
 	public Integer getPriceStatus() {
 		return this.priceStatus;
 	}

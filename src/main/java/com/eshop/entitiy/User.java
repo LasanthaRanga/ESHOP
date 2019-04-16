@@ -1,5 +1,5 @@
 package com.eshop.entitiy;
-// Generated Mar 18, 2019 10:10:47 PM by Hibernate Tools 4.3.5.Final
+// Generated Apr 10, 2019 12:46:25 AM by Hibernate Tools 4.3.5.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -53,9 +53,9 @@ public class User implements java.io.Serializable {
 
 	public User(Usertype usertype, String userEmail, String userPassword, String userContact1, String userContact2,
 			String userAddress1, String userAddress2, String userAddress3, String userPostalCode, Integer userStatus,
-			String userName, String gender, String userNic, String userDiscription, Double userCurrentCoin,String userPic,
-			Double userCurrentConinValue, Set<ShopHasUser> shopHasUsers, Set<Cart> carts, Set<Product> products,
-			Set<Shop> shops) {
+			String userName, String gender, String userNic, String userDiscription, Double userCurrentCoin,
+			Double userCurrentConinValue, String userPic, Set<ShopHasUser> shopHasUsers, Set<Cart> carts,
+			Set<Product> products, Set<Shop> shops) {
 		this.usertype = usertype;
 		this.userEmail = userEmail;
 		this.userPassword = userPassword;
@@ -72,7 +72,7 @@ public class User implements java.io.Serializable {
 		this.userDiscription = userDiscription;
 		this.userCurrentCoin = userCurrentCoin;
 		this.userCurrentConinValue = userCurrentConinValue;
-		this.userPic =userPic;
+		this.userPic = userPic;
 		this.shopHasUsers = shopHasUsers;
 		this.carts = carts;
 		this.products = products;
@@ -236,7 +236,7 @@ public class User implements java.io.Serializable {
 		this.userCurrentConinValue = userCurrentConinValue;
 	}
 
-	@Column(name = "UserPic", length = 255)
+	@Column(name = "UserPic")
 	public String getUserPic() {
 		return this.userPic;
 	}
@@ -244,7 +244,7 @@ public class User implements java.io.Serializable {
 	public void setUserPic(String userPic) {
 		this.userPic = userPic;
 	}
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<ShopHasUser> getShopHasUsers() {
 		return this.shopHasUsers;

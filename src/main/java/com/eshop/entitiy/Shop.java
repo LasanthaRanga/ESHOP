@@ -1,5 +1,5 @@
 package com.eshop.entitiy;
-// Generated Mar 18, 2019 10:10:47 PM by Hibernate Tools 4.3.5.Final
+// Generated Apr 10, 2019 12:46:25 AM by Hibernate Tools 4.3.5.Final
 
 import java.util.Date;
 import java.util.HashSet;

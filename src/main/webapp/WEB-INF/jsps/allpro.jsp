@@ -209,8 +209,8 @@
 										<c:choose>
 										<c:when test="${Price.priceStatus==1}">
 											<div class="price">
-												<h6>LKR. ${Price.maximum}0</h6>
-<!-- 												<h6 class="l-through">$210.00</h6> -->
+												<h6>LKR. ${Price.selling}0</h6>
+ 												<h6 class="l-through">LKR. ${Price.biforDiscount}0</h6> 
 											</div>
 										</c:when>	
 										</c:choose>

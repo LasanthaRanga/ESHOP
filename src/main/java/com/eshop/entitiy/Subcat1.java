@@ -1,5 +1,5 @@
 package com.eshop.entitiy;
-// Generated Mar 18, 2019 10:10:47 PM by Hibernate Tools 4.3.5.Final
+// Generated Apr 10, 2019 12:46:25 AM by Hibernate Tools 4.3.5.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -29,6 +29,7 @@ public class Subcat1 implements java.io.Serializable {
 	private Integer subcat1status;
 	@JsonIgnore
 	private Set<Subcat2> subcat2s = new HashSet<Subcat2>(0);
+	@JsonIgnore
 	private Set<Product> products = new HashSet<Product>(0);
 
 	public Subcat1() {

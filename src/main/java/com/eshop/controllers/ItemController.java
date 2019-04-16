@@ -127,5 +127,12 @@ public class ItemController {
 		mm.addAttribute("items", all);
 		return "/allpro";
 	}
+	
+	@RequestMapping("/productlist")
+	public String productlist(ModelMap mm) {
+		List<Product> all = psi.getAll();			
+		mm.addAttribute("items", all);
+		return "admin/allproducts";
+	}
 
 }

@@ -36,7 +36,7 @@
 					<div class="s_product_text">
 						<h3>${item.productName}</h3>						
 					<c:forEach items="${item.getPrices()}" var="Price">						
-						<h2>Rs. ${Price.getMaximum()}0</h2>
+						<h2>Rs. ${Price.selling}0</h2>
 					</c:forEach>					
 						<ul class="list">
 <!-- 							<li><a class="active" href="#"><span>Category</span> : Household</a></li> -->
