@@ -183,5 +183,12 @@ public class UserController {
 		return "/admin/profile";
 	}
 	
+	
+	@RequestMapping("/logsettings")
+	public String allLogins(ModelMap modelmap) {
+		List<User> all = userServiceImpl.getAll();
+		modelmap.addAttribute("users", all);
+		return "/logsettings";
+	}
 
 }

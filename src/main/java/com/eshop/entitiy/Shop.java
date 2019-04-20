@@ -141,7 +141,7 @@ public class Shop implements java.io.Serializable {
 		this.sales = sales;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "shop")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "shop")
 	public Set<Shophasproduct> getShophasproducts() {
 		return this.shophasproducts;
 	}

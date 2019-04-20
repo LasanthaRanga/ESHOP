@@ -9,7 +9,8 @@
 <%@ include file="../template/adminHead.jsp"%>
 <div class="card shadow mb-4">
 	<div class="card-header py-3">
-		<h6 class="m-0 font-weight-bold text-primary">My Shop Name : ${shop.shopName}</h6>
+		<h6 class="m-0 font-weight-bold text-primary">My Shop Name :
+			${shop.shopName}</h6>
 	</div>
 	<div class="card-body">
 
@@ -23,13 +24,14 @@
 		</c:if>
 
 
-				
-	
+
+
 		<h4>Shop Details</h4>
 		<p>Start Date : ${shop.shopStartDate}</p>
 		<p>Start Description : ${shop.shopDiscription}</p>
+		<p>Product Count : ${shop.getShophasproducts().size()}</p>
 
-
+		
 
 	</div>
 </div>

@@ -4,94 +4,99 @@
 <%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+
+
+
 </head>
+
 <body>
-	<h1>Add To Shop</h1>
+	<h1>All Products</h1>
+	<input type="hidden" id="iduser" value="${sessionScope.user.idUser}">
+	<table>
+		<thead>
+			<td>Image</td>
+			<td>Product Name</td>
+			<td>Price</td>
+			<td>Code</td>
+			<td>Add To Shop</td>
+		</thead>
+		<tbody>
+
+			<c:forEach items="${items}" var="item">
+				<tr>
+
+					<td><c:forEach items="${item.value.images}" var="image">
+							<c:if test="${image.imageStatus!=null}">
+								<img width="200px" height="200px" src="${image.getImagePath()}" />
+							</c:if>
+						</c:forEach></td>
+
+					<td>${item.key}</td>
+					<td>${item.value.productName}</td>
+					<td>${item.value.productCode}</td>
 
 
-	<h2></h2>
+					<td><c:if test="${item.value.productStatus2==0}">
+							<button class="btn-dif" value="${item.value.idProduct}" onclick="myFunction(this.value)"
+								>Add To Shop</button>
+						</c:if> <c:if test="${item.value.productStatus2==1}">
+						AllRady Added To Shop
+					</c:if></td>
+				</tr>
+			</c:forEach>
+
+		</tbody>
+	</table>
 
 
 
-	<c:forEach items="${items}" var="Product">
-
-		<!-- 	
-		<c:forEach items="${Product.getImages()}" var="Image">
-			<c:choose>
-				<c:when test="${Image.imageStatus!=null}">
-					<img class="img-fluid" src="${Image.imagePath}"
-						alt="${Image.imagePath}">
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		 -->
-		<h6>${Product.productName}</h6>
-		
-		<input type="hidden" id="pid" name="pid" value=""/>	
-		<button class="test" value="${Product.idProduct}" onclick="test()">TEST</button>	
-		
-		<!-- 	<c:forEach items="${Product.getPrices()}" var="Price">
-			<c:choose>
-				<c:when test="${Price.priceStatus==1}">
-					<div class="price">
-						<h6>LKR. ${Price.selling}0</h6>
-						<h6 class="l-through">LKR. ${Price.biforDiscount}0</h6>
-					</div>
-				</c:when>
-			</c:choose>
-		</c:forEach>
-		-->
-
-	</c:forEach>
-
-
-
-	
 
 
 </body>
 
-<script src="vendor/jquery/jquery.min.js"></script>
 
+<script src="vendor/jquery/jquery.min.js"></script>
 <script type="text/javascript">
 
+function myFunction(x) {
+	var user = $('#iduser').val();
+	alert(x);
+	var formData = {
+ 			key : user,
+ 			val : x
+ 	}
+ 	alert(formData.key +" " +formData.val);
 
-function test(){
-// 	var pid = #("pid").val();
-//	console.log(this.val());
+	$.ajax({
+	      type : "POST",
+	      contentType : "application/json",
+	      url : "http://localhost/addtoshopAjax",
+	      data : JSON.stringify(formData),
+	      dataType : 'json',
+	      success : function(result) {
+	        if(result.status == "Done"){
+				alert("done");
+	        }else{
+	        	alert("NO");
+	        }
+	        console.log(result);
+	      },
+	      error : function(e) {
+	        alert("Error!")
+	        console.log("ERROR: ", e);
+	      }
+	    });
+
+
+ 	
 }
 
-
-	function addItem() {
-
-		$.ajax({
-			url : 'http://localhost:80/subcat2/' + id,
-			type : "POST",
-			success : function(result) {
-
-				 $('#subcat2').append($('<option>', {
-					value : 0,
-					text : 'Please select Sub Cat2'
-				}));
-
-				console.log(result);
-				$.each(result, function(i, item) {
-					$('#subcat2').append($('<option>', {
-						value : item.idSubcat2,
-						text : item.subcat2name,
-					}));
-				});
-			},
-			error : function(error) {
-				console.log(`Error ${error}`)
-			}
-		});
-
-	}
 </script>
+
 
 
 

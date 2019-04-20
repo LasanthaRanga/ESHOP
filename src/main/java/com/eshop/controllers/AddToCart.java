@@ -15,31 +15,31 @@ import com.eshop.service.UserServiceImpl;
 
 @Controller
 public class AddToCart {
-	
-		
+
 	@Autowired
 	UserServiceImpl user;
-	
 
 	@RequestMapping("/addtocart")
-	public String addToCart(@RequestParam("pid") String pid, @RequestParam("qty") Integer qty, HttpServletRequest request, ModelMap mm) {
-		
-		User user  = (User)request.getSession().getAttribute("user");
-		if(user==null) {
+	public String addToCart(@RequestParam("pid") String pid, @RequestParam("qty") Integer qty,
+			HttpServletRequest request, ModelMap mm) {
+
+		User user = (User) request.getSession().getAttribute("user");
+		int shopid = Integer.parseInt(request.getSession().getAttribute("shopid").toString());
+		if (user == null) {
 			request.getSession().setAttribute("pid", pid);
 			return "login";
-		}else {
+		} else {
 			System.out.println("=============================================================================");
-			
+
 			System.out.println(pid);
 			System.out.println(qty);
 			System.out.println("=============================================================================");
-			
+
 			return "";
 		}
-		
-		//asdf
-		
+
+		// asdf
+
 	}
-	
+
 }

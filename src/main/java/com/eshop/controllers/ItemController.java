@@ -115,9 +115,10 @@ public class ItemController {
 	}
 
 	@RequestMapping("/onepro/{id}")
-	public String loadOneProduct(@PathVariable("id") Integer id, ModelMap mm) {
+	public String loadOneProduct(@PathVariable("id") Integer id, ModelMap mm,HttpSession session) {
 		Product byId = psi.getById(id);
 		mm.addAttribute("item", byId);
+		session.setAttribute("hasitem", byId);
 		return "/product";
 	}
 
@@ -128,11 +129,8 @@ public class ItemController {
 		return "/allpro";
 	}
 	
-	@RequestMapping("/productlist")
-	public String productlist(ModelMap mm) {
-		List<Product> all = psi.getAll();			
-		mm.addAttribute("items", all);
-		return "admin/allproducts";
-	}
+
+	
+
 
 }

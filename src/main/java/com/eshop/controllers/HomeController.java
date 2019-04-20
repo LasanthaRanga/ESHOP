@@ -22,6 +22,13 @@ public class HomeController {
 		return"admin/blank";
 	}
 	
+	@RequestMapping("/ajax")
+	public String goAjax(){
+		return"/ajax";
+	}
+	
+	
+	
 	
 	
 }
