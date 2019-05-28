@@ -9,6 +9,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String home() {
+//		return "testhome";
 		return "index";
 	}
 	
@@ -25,6 +26,11 @@ public class HomeController {
 	@RequestMapping("/ajax")
 	public String goAjax(){
 		return"/ajax";
+	}
+	
+	@RequestMapping("/dashboard")
+	public String dashboard(){
+		return"/admin/dashboard";
 	}
 	
 	

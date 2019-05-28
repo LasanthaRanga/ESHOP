@@ -60,16 +60,20 @@
 
 
 <script src="vendor/jquery/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
 <script type="text/javascript">
 
 function myFunction(x) {
 	var user = $('#iduser').val();
 	alert(x);
+	
 	var formData = {
  			key : user,
  			val : x
  	}
- 	alert(formData.key +" " +formData.val);
+ 	
 
 	$.ajax({
 	      type : "POST",
@@ -79,9 +83,15 @@ function myFunction(x) {
 	      dataType : 'json',
 	      success : function(result) {
 	        if(result.status == "Done"){
-				alert("done");
+	        	Swal.fire({
+	        		  position: 'top-end',
+	        		  type: 'success',
+	        		  title: 'This Product Added To Your Shop',
+	        		  showConfirmButton: false,
+	        		  timer: 1500
+	        		})
 	        }else{
-	        	alert("NO");
+	        	
 	        }
 	        console.log(result);
 	      },
@@ -91,8 +101,6 @@ function myFunction(x) {
 	      }
 	    });
 
-
- 	
 }
 
 </script>

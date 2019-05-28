@@ -254,7 +254,7 @@ public class User implements java.io.Serializable {
 		this.shopHasUsers = shopHasUsers;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	public Set<Cart> getCarts() {
 		return this.carts;
 	}

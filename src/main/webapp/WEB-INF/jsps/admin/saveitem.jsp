@@ -117,7 +117,7 @@
 					id="coinval" name="coinval" class="form-control show-tick">
 			</div>
 			<div class="col-sm-4">
-				<h4 id="ccont">0</h4>
+				<h2 id="ccont">0</h2>
 			</div>
 			
 			<div class="col-sm-4">
@@ -295,6 +295,19 @@ var disval = 0;
 	}
 
 	function cal(){
-		cov = sel-(bp+pro+oth)
+
+		cov = sel-(bp+pro+oth);
+		var dval = 0.0;
+		$.getJSON("https://free.currconv.com/api/v7/convert?q=LKR_USD&compact=ultra&apiKey=740854462016eab500f4",
+				function(data) {
+				dval =  data['LKR_USD'];	
+				console.log(cov * dval);	
+
+				$('#ccont').text(cov * dval);
+						 
+				}); 
+		
+		
+		
 	}
 </script>

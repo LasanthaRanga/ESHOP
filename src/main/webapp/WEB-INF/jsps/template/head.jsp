@@ -3,7 +3,6 @@
 <%@ page isELIgnored="false"%>
 
 
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 
@@ -66,7 +65,7 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
-							<li class="nav-item "><a class="nav-link" href="/">Home</a></li>
+							<li class="nav-item <% // if(pagename.equals("home")){out.write("active");} %>"><a class="nav-link" href="/">Home</a></li>
 							<li class="nav-item active"><a class="nav-link" href="/allshops">Shops</a></li>
 							
 <!-- 							
