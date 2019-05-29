@@ -8,7 +8,7 @@
 <%@ include file="../template/adminHead.jsp"%>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+<h1 class="h3 mb-4 text-gray-800">Dash Board</h1>
 <!-- CURRENCY-CONVERTER.ORG.UK CURRENCY CHARTS START -->
 <div
 	style="width: 178px; margin: 0; padding: 0; border: 1px solid #2D6AB4; background: #E6F2FA;">

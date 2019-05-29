@@ -82,7 +82,7 @@ public class UserController {
 		System.out.println("awa   "+uid);
 		User byId = userServiceImpl.getById(uid);
 		modelmap.addAttribute("user", byId);
-		return "selectedUser";
+		return "/admin/selectedUser";
 	}
 
 	@RequestMapping("/login")
@@ -97,16 +97,16 @@ public class UserController {
 
 			if (userByLogin.getUsertype().getIdUserType() == 1) {
 				System.out.println("ADMIN");
-				path = "/admin/profile";
+				path = "/admin/dashboard";
 			} else if (userByLogin.getUsertype().getIdUserType() == 2) {
 				System.out.println("Reseller");
-				path = "/admin/profile";
+				path = "/admin/dashboard";
 			} else if (userByLogin.getUsertype().getIdUserType() == 3) {
 				System.out.println("Supplier");
-				path = "/admin/profile";
+				path = "/admin/dashboard";
 			} else if (userByLogin.getUsertype().getIdUserType() == 4) {
 				System.out.println("Customer");
-				path = "/admin/profile";
+				path = "/admin/dashboard";
 			} else {
 				path = "login";
 			}
